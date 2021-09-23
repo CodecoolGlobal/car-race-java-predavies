@@ -1,5 +1,8 @@
 package com.codecool.car_race;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Race {
 
     /**
@@ -14,6 +17,12 @@ public class Race {
      * race.
      */
     public void printRaceResults() {
+        System.out.println("Race results:");
+        vehicles.forEach(System.out::println);
     }
 
+    private final List<Vehicle> vehicles = new LinkedList<>();
+    public void registerRacer(Vehicle racer) {
+        vehicles.add(racer);
+    }
 }
