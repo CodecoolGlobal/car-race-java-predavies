@@ -1,10 +1,15 @@
 package com.codecool.car_race;
 
 public abstract class Vehicle {
-    protected Vehicle() {
-        this.name = "Vehicle"; //TODO: set name according to specification
-        this.normalSpeed = 100; //TODO: set normal speed according to specification
+
+    protected Vehicle (int normalSpeed) {
+        this.name = generateName();
+        this.normalSpeed = normalSpeed;
     }
+
+
+    protected abstract String generateName();
+
     protected final String name;
     protected final int normalSpeed;
     protected int actualSpeed;
@@ -14,5 +19,19 @@ public abstract class Vehicle {
     public final void moveForAnHour() {
         distanceTravelled += actualSpeed;
     }
-
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("{")
+                .append("distance travelled: ")
+                .append(distanceTravelled)
+                .append(", ")
+                .append("type: ")
+                .append(getClass().getSimpleName())
+                .append(", ")
+                .append("name: ")
+                .append(name)
+                .append("}");
+        return sb.toString();
+    }
 }
