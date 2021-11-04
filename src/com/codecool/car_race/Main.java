@@ -1,6 +1,12 @@
 package com.codecool.car_race;
 
 
+import com.codecool.car_race.vehicle.Car;
+import com.codecool.car_race.vehicle.Motorcycle;
+import com.codecool.car_race.vehicle.Truck;
+
+import javax.sound.midi.Track;
+
 public class Main {
 
     /**
@@ -19,6 +25,11 @@ public class Main {
      */
     public static void main(String[] args) {
         Race race = new Race();
+        for (int i = 0; i < 10; i++) {
+            race.registerRacer(new Car());
+            race.registerRacer(new Motorcycle());
+            race.registerRacer(new Truck());
+        }
         createVehicles(race);
 
         race.simulateRace();
